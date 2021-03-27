@@ -47,7 +47,7 @@ async def help_bot2(app, msg):
         await msg.edit(f"Модуль **{name_module}** не найден!")
     except IndexError:
       moduls = modules_list()
-      text = f"**[KGBot](tg://user?id={me.id})**\n\n**Доступные модули:**\n"
+      text = f"**[KGBot](tg://user?id={me.id})**\n\n**Доступные модули:**\n\n"
       lenght = 0
       for i in moduls:
         s = importlib.import_module(f"modules.{i}")
