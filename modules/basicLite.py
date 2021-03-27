@@ -41,7 +41,7 @@ def help_bot(app, msg):
 			msg.edit(f"Модуль **{name_module}** не найден!")
 	except IndexError:
 		moduls = modules_list()
-		text = f"**[KGBot](tg://user?id={me.id}) | [Канал](tg://resolve?domain=testy_ahaahahhahah)\nВведите .help [module] чтобы получить информацию о модуле\n\nДоступные модули:**\n"
+		text = f"**[KGBot](tg://user?id={me.id}) | [Канал](t.me/kgbotmodules)\nВведите .help [module] чтобы получить информацию о модуле\n\nДоступные модули:**\n"
 		lenght = 0
 		for i in moduls:
 			s = importlib.import_module(f"modules.{i}")
