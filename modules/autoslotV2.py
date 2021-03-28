@@ -1,9 +1,6 @@
 from pyrogram import Client as app, filters
 import os
 import time
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
 
 
 def tran(money, kof):
@@ -17,7 +14,6 @@ def tran(money, kof):
 def check_at_letter(stavk):
 	return int(''.join([i for i in stavk if str(i) in '1234567890']))
 
-for_graph = [0]
 gamemode = [False]
 start_stavka = ["10мк"]
 stavka = ['10мк']
@@ -47,15 +43,6 @@ def slot_on( app, msg):
 	time.sleep(2)
 	app.send_message(msg.chat.id, f"Слот {stavka[0]}")
 	
-
-#вывод графика
-@app.on_message(filters.me & filters.command("graph","."))
-def show_graph(app, msg):
-	plt.plot(for_graph)
-	plt.savefig("downloads/graphic.png")
-	app.send_photo(msg.chat.id, photo="downloads/graphic.png")
-	os.system("rm downloads/graphic.png")
-	#plt.axis(0,len(for_graph),0,len(for_graph) / 3)
 
 #проверка состояния игрового бота
 @app.on_message(filters.me & filters.command("checks","."))
